@@ -1,10 +1,18 @@
 resource "aws_route_table" "pub_rtb" {
   vpc_id = aws_vpc.vpc.id
+
+  tags = {
+    name = "${var.prefix}-pub-rtb"
+  }
 }
 
 resource "aws_route_table" "pri_rtb" {
   for_each = toset(var.availability_zones)
   vpc_id = aws_vpc.vpc.id
+
+  tags = {
+    name = "${var.prefix}-pri-rtb-${substr(each.key,-2,2)}"
+  }
 }
 
 resource "aws_route" "pub_route" {
