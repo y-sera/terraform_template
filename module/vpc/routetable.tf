@@ -2,7 +2,7 @@ resource "aws_route_table" "pub_rtb" {
   vpc_id = aws_vpc.vpc.id
 
   tags = {
-    name = "${var.prefix}-pub-rtb"
+    Name = "${var.prefix}-pub-rtb"
   }
 }
 
@@ -11,7 +11,7 @@ resource "aws_route_table" "pri_rtb" {
   vpc_id = aws_vpc.vpc.id
 
   tags = {
-    name = "${var.prefix}-pri-rtb-${substr(each.key,-2,2)}"
+    Name = "${var.prefix}-pri-rtb-${substr(each.key,-2,2)}"
   }
 }
 

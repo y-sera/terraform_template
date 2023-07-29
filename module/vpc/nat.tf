@@ -5,13 +5,13 @@ resource "aws_nat_gateway" "nat" {
   subnet_id = aws_subnet.pub_subnet[each.key].id
 
   tags = {
-    name = "${var.prefix}-nat-${substr(each.key,-2,2)}"
+    Name = "${var.prefix}-nat-${substr(each.key,-2,2)}"
   }
 }
 
 resource "aws_eip" "eip" {
   for_each = toset(var.availability_zones)
   tags = {
-    name = "${var.prefix}-nat-eip-${substr(each.key,-2,2)}"
+    Name = "${var.prefix}-nat-eip-${substr(each.key,-2,2)}"
   }
 }

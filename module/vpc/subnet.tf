@@ -5,7 +5,7 @@ resource "aws_subnet" "pub_subnet" {
     availability_zone = each.key
 
   tags = {
-    name = "${var.prefix}-pub-subnet-${substr(each.key,-2,2)}"
+    Name = "${var.prefix}-pub-subnet-${substr(each.key,-2,2)}"
   }
 }
 
@@ -16,7 +16,7 @@ resource "aws_subnet" "pri_subnet" {
     availability_zone = each.key
 
   tags = {
-    name = "${var.prefix}-pub-subnet-${substr(each.key,-2,2)}"
+    Name = "${var.prefix}-pub-subnet-${substr(each.key,-2,2)}"
   }
 
 }

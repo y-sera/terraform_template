@@ -3,7 +3,7 @@ resource "aws_cloudwatch_log_group" "log_group_flowlog" {
   retention_in_days = var.flowlog_retention_days
 
   tags = {
-    name = "${var.prefix}-vpc-flowlog"
+    Name = "${var.prefix}-vpc-flowlog"
   }
 }
 
@@ -12,7 +12,7 @@ resource "aws_iam_role" "iam_role_flowlog" {
   assume_role_policy = data.aws_iam_policy_document.assume_role_policy_doc_flowlog.json
 
   tags = {
-    name = "${var.prefix}-role-flowlog"
+    Name = "${var.prefix}-role-flowlog"
   }
 }
 
@@ -23,7 +23,7 @@ resource "aws_iam_policy" "iam_policy_flowlog" {
   policy = data.aws_iam_policy_document.policy_doc_flowlog.json
 
   tags = {
-    name = "${var.prefix}-iam-policy-flowlog"
+    Name = "${var.prefix}-iam-policy-flowlog"
   }
 }
 
@@ -73,6 +73,6 @@ resource "aws_flow_log" "flowlog" {
   iam_role_arn = aws_iam_role.iam_role_flowlog.arn
 
   tags = {
-    name = "${var.prefix}-vpc-flowlog"
+    Name = "${var.prefix}-vpc-flowlog"
   }
 }
