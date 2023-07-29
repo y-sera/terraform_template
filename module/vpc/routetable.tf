@@ -1,3 +1,11 @@
+resource "aws_default_route_table" "vpc_default_rtb" {
+  default_route_table_id = aws_vpc.vpc.default_route_table_id
+
+  tags = {
+    Name = "${var.prefix}-vpc-default-rtb"
+  }
+}
+
 resource "aws_route_table" "pub_rtb" {
   vpc_id = aws_vpc.vpc.id
 
